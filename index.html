@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMÉ Beauty | Skincare & Makeup</title>
+<style>
+:root{
+  --rose:#f7e7e7; --pink:#d98f9c; --dark:#2d2527; --cream:#fffaf8;
+  --muted:#756a6c; --white:#fff; --line:#eadedf;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--dark);background:var(--cream);line-height:1.5}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.top{background:#2d2527;color:white;text-align:center;padding:8px;font-size:12px;letter-spacing:.5px}
+nav{height:78px;background:white;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.logo{font-family:Georgia,serif;font-size:27px;letter-spacing:4px}
+.logo span{color:var(--pink)}
+.links{display:flex;gap:28px;font-size:14px}
+.links a:hover{color:var(--pink)}
+.icons{display:flex;gap:12px}
+.icon{border:0;background:var(--rose);width:38px;height:38px;border-radius:50%;cursor:pointer}
+.hero{min-height:510px;background:linear-gradient(90deg,rgba(255,250,248,.98) 0%,rgba(255,250,248,.82) 46%,rgba(247,231,231,.3)),url('https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1800&q=85') center/cover;display:flex;align-items:center;padding:60px 8%}
+.hero-content{max-width:540px}
+.kicker{text-transform:uppercase;letter-spacing:3px;font-size:12px;color:var(--pink);font-weight:bold}
+h1{font-family:Georgia,serif;font-size:clamp(44px,6vw,76px);line-height:1.02;margin:15px 0}
+.hero p{font-size:17px;color:var(--muted);max-width:470px;margin-bottom:25px}
+.btn{display:inline-block;background:var(--dark);color:white;padding:13px 24px;border-radius:25px;border:0;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);background:#4b3c40}
+.section{padding:70px 7%}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}
+.section h2{font-family:Georgia,serif;font-size:34px}
+.section-head p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s;position:relative}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(50,30,35,.08)}
+.pic{height:245px;background:#f5eeee;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pic img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:12px;left:12px;background:white;padding:5px 10px;border-radius:20px;font-size:11px}
+.info{padding:17px}
+.brand{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#9b8b8f}
+.name{font-weight:bold;margin:5px 0}
+.price{margin-top:9px;font-weight:bold}
+.old{text-decoration:line-through;color:#aaa;font-weight:normal;margin-left:6px}
+.add{width:100%;margin-top:13px;padding:10px;border:1px solid var(--dark);background:white;border-radius:22px;cursor:pointer}
+.add:hover{background:var(--dark);color:white}
+.categories{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.category{height:280px;border-radius:16px;overflow:hidden;position:relative;background-size:cover;background-position:center;display:flex;align-items:end}
+.category:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.cat-text{position:relative;z-index:1;color:white;padding:25px}
+.cat-text h3{font-family:Georgia,serif;font-size:32px}
+.banner{background:var(--rose);display:grid;grid-template-columns:1fr 1fr;align-items:center;overflow:hidden}
+.banner img{width:100%;height:340px;object-fit:cover}
+.banner-text{padding:45px}
+.banner-text h2{font-family:Georgia,serif;font-size:42px;margin:10px 0}
+.banner-text p{color:var(--muted);margin-bottom:22px}
+.news{background:#2d2527;color:white;text-align:center;padding:65px 20px}
+.news h2{font-family:Georgia,serif;font-size:34px}
+.news p{color:#ddd;margin:8px auto 22px;max-width:530px}
+.form{display:flex;max-width:480px;margin:auto;background:white;border-radius:30px;padding:5px}
+.form input{flex:1;border:0;outline:0;padding:11px 15px;border-radius:30px}
+.form button{border:0;background:var(--pink);color:white;padding:11px 20px;border-radius:25px;cursor:pointer}
+footer{padding:28px 7%;display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+.toast{position:fixed;right:20px;bottom:20px;background:#2d2527;color:white;padding:14px 20px;border-radius:12px;opacity:0;transform:translateY(20px);transition:.3s;z-index:20}
+.toast.show{opacity:1;transform:none}
+@media(max-width:850px){.links{display:none}.grid{grid-template-columns:repeat(2,1fr)}.banner{grid-template-columns:1fr}.banner img{height:260px}.categories{grid-template-columns:1fr}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.hero{padding:45px 7%}.section{padding:50px 6%}footer{display:block;text-align:center}.logo{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="top">ENVÍO GRATIS EN COMPRAS MAYORES A Q350 · NUEVA COLECCIÓN 2026</div>
+
+<nav>
+  <a class="logo" href="#">LUMÉ <span>BEAUTY</span></a>
+  <div class="links">
+    <a href="#skincare">Skincare</a><a href="#makeup">Makeup</a><a href="#favoritos">Favoritos</a><a href="#nosotros">Nosotros</a>
+  </div>
+  <div class="icons"><button class="icon" onclick="showToast('♡ Agregado a favoritos')">♡</button><button class="icon" onclick="showToast('🛍 Tu carrito está listo')">🛍</button></div>
+</nav>
+
+<section class="hero">
+ <div class="hero-content">
+  <div class="kicker">Belleza · Cuidado · Confianza</div>
+  <h1>Tu piel,<br>tu glow.</h1>
+  <p>Descubre una selección de skincare y makeup pensada para crear rutinas sencillas, bonitas y especiales para todos los días.</p>
+  <a class="btn" href="#favoritos">Comprar favoritos</a>
+ </div>
+</section>
+
+<section class="section" id="favoritos">
+ <div class="section-head"><div><p class="kicker">Lo más buscado</p><h2>Favoritos de la semana</h2></div><p>Selección LUMÉ</p></div>
+ <div class="grid">
+  <article class="card"><div class="pic"><span class="badge">BEST SELLER</span><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=700&q=80" alt="Serum"></div><div class="info"><div class="brand">LUMÉ LAB</div><div class="name">Hydra Glow Serum</div><div class="price">Q129.00</div><button class="add" onclick="showToast('Hydra Glow Serum agregado al carrito')">Agregar al carrito</button></div></article>
+  <article class="card"><div class="pic"><span class="badge">NUEVO</span><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=80" alt="Maquillaje"></div><div class="info"><div class="brand">LUMÉ COLOR</div><div class="name">Soft Blush — Rose</div><div class="price">Q89.00</div><button class="add" onclick="showToast('Soft Blush agregado al carrito')">Agregar al carrito</button></div></article>
+  <article class="card"><div class="pic"><img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=80" alt="Crema facial"></div><div class="info"><div class="brand">LUMÉ SKIN</div><div class="name">Daily Cloud Cream</div><div class="price">Q109.00</div><button class="add" onclick="showToast('Daily Cloud Cream agregado al carrito')">Agregar al carrito</button></div></article>
+  <article class="card"><div class="pic"><span class="badge">TOP</span><img src="https://images.unsplash.com/photo-1631730486572-226d1d7d4f16?auto=format&fit=crop&w=700&q=80" alt="Labial"></div><div class="info"><div class="brand">LUMÉ COLOR</div><div class="name">Velvet Lip — Nude</div><div class="price">Q79.00 <span class="old">Q95.00</span></div><button class="add" onclick="showToast('Velvet Lip agregado al carrito')">Agregar al carrito</button></div></article>
+ </div>
+</section>
+
+<section class="section" id="skincare">
+ <div class="section-head"><div><p class="kicker">Explora</p><h2>Encuentra tu categoría</h2></div></div>
+ <div class="categories">
+  <a class="category" style="background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1000&q=80')" href="#skincare"><div class="cat-text"><h3>Skincare</h3><p>Limpieza · Hidratación · Glow</p></div></a>
+  <a class="category" style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=80')" href="#makeup"><div class="cat-text"><h3>Makeup</h3><p>Rostro · Labios · Ojos</p></div></a>
+ </div>
+</section>
+
+<section class="banner" id="makeup">
+ <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=85" alt="Colección de maquillaje">
+ <div class="banner-text"><p class="kicker">LUMÉ COLOR</p><h2>Makeup para tu mood.</h2><p>Texturas cómodas, tonos fáciles de combinar y productos para crear looks naturales o más intensos.</p><button class="btn" onclick="showToast('Colección Makeup seleccionada')">Ver colección</button></div>
+</section>
+
+<section class="section" id="nosotros">
+ <div class="section-head"><div><p class="kicker">Nuestra filosofía</p><h2>Menos complicaciones,<br>más confianza.</h2></div><p style="max-width:420px">LUMÉ BEAUTY es una tienda ficticia creada como proyecto escolar. Su concepto combina cuidado de la piel y maquillaje en una experiencia digital moderna.</p></div>
+</section>
+
+<section class="news">
+ <h2>Únete a LUMÉ</h2><p>Recibe novedades, lanzamientos y tips de belleza.</p>
+ <div class="form"><input id="email" type="email" placeholder="Tu correo electrónico"><button onclick="subscribe()">Suscribirme</button></div>
+</section>
+
+<footer><span>© 2026 LUMÉ BEAUTY · Proyecto escolar</span><span>Instagram · TikTok · Contacto</span></footer>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.tm);window.tm=setTimeout(()=>t.classList.remove('show'),2200)}
+function subscribe(){const e=document.getElementById('email');if(!e.value||!e.value.includes('@')){showToast('Escribe un correo válido');return}showToast('¡Gracias por suscribirte a LUMÉ!');e.value=''}
+</script>
+</body>
+</html>
